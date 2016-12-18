@@ -4,11 +4,11 @@ var console = require('tracer').colorConsole();
 
 var bodyParser = (require('body-parser')).json();
 
-var createRouter = (Model)=> {
+var createRouter = (Model, Schema)=> {
     
     var router = express.Router();    
     router.use(bodyParser);
-        
+
     router.use((req, res, next)=> {
         req.errorCallback = (err)=> {
             console.log('err', err);
@@ -16,6 +16,7 @@ var createRouter = (Model)=> {
         };
         next();
     });
+
 
     router.route('/')
         .get((req, res)=> {
@@ -39,6 +40,11 @@ var createRouter = (Model)=> {
             model.save()
                 .then((models)=>res.json(models))
                 .catch(req.errorCallback)
+        });
+
+    router.route('/schema')
+        .get((req, res) => {
+            res.json(Schema.jsonSchema());
         });
 
     router.route('/:id')

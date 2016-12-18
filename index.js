@@ -9,6 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose');
+require('mongoose-schema-jsonschema')(mongoose)
+
 mongoose.connect('mongodb://localhost/my_database');
 
 var LokoSchema = require('./models/loko');
@@ -20,7 +22,7 @@ var app = express();
 
 var createRouter = require('./router');
 
-var lokoRouter = createRouter(Loko);
+var lokoRouter = createRouter(Loko, LokoSchema);
 
 
 // view engine setup
