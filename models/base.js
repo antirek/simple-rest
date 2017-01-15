@@ -16,12 +16,8 @@ var joiUserSchema = Joi.object({
     metaInfo: Joi.any()
 });
 
-console.log('joiUserSchema', joiUserSchema);
+//console.log('joiUserSchema', joiUserSchema);
 
-var joiBaseSchema = schemes.base;
-
-console.log('joiBaseSchema', joiBaseSchema);
-
-var mongooseBaseSchema = Joigoose.convert(joiBaseSchema);
+var mongooseBaseSchema = Joigoose.convert(joiUserSchema);
 
 module.exports = mongooseBaseSchema;
