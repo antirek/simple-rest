@@ -18,10 +18,10 @@ var joiUserSchema = Joi.object({
 
 console.log('joiUserSchema', joiUserSchema);
 
-var joiTrunkSchema = schemes.trunk;
+var joiBaseSchema = schemes.base;
 
-console.log('joiTrunkSchema', joiTrunkSchema);
+console.log('joiBaseSchema', joiBaseSchema);
 
-var mongooseTrunkSchema = Joigoose.convert(joiTrunkSchema);
+var mongooseBaseSchema = Joigoose.convert(joiBaseSchema);
 
-module.exports = mongooseTrunkSchema;
+module.exports = mongooseBaseSchema;
