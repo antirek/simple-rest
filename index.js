@@ -18,12 +18,18 @@ var LokoSchema = require('./models/loko');
 
 var Loko = mongoose.model('Loko', LokoSchema);
 
+var BaseSchema = require('./models/base');
+
+var Base = mongoose.model('Base', BaseSchema);
+
 var app = express();
 
 
 var createRouter = require('./router');
 
 var lokoRouter = createRouter(Loko, LokoSchema);
+
+var baseRouter = createRouter(Base, BaseSchema);
 
 
 // view engine setup
@@ -42,6 +48,7 @@ app.use(cors());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/loko', lokoRouter);
+app.use('/base', baseRouter);
 
 
 // catch 404 and forward to error handler
