@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var Joigoose = require('joigoose')(mongoose);
 var Joi = require('joi');
-var schemes = require('schemes');
+//var schemes = require('schemes');
 
 
 var joiUserSchema = Joi.object({

@@ -17,8 +17,8 @@ mongoose.connect('mongodb://localhost/my_database');
 var LokoSchema = require('./models/loko');
 var Loko = mongoose.model('Loko', LokoSchema);
 
-var BaseSchema = require('./models/base');
-var Base = mongoose.model('Base', BaseSchema);
+//var BaseSchema = require('./models/base');
+//var Base = mongoose.model('Base', BaseSchema);
 
 var TrunkSchema = require('./models/trunk');
 var Trunk = mongoose.model('Trunk', TrunkSchema);
@@ -30,7 +30,7 @@ var app = express();
 var createRouter = require('./router');
 
 var lokoRouter = createRouter(Loko, LokoSchema);
-var baseRouter = createRouter(Base, BaseSchema);
+//var baseRouter = createRouter(Base, BaseSchema);
 var trunkRouter = createRouter(Trunk, TrunkSchema);
 
 
@@ -50,7 +50,7 @@ app.use(cors());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/loko', lokoRouter);
-app.use('/base', baseRouter);
+//app.use('/base', baseRouter);
 app.use('/trunk', trunkRouter);
 
 
