@@ -4,6 +4,8 @@ var console = require('tracer').colorConsole();
 
 var bodyParser = (require('body-parser')).json();
 
+var jsonSchema = require('mongoose-jsonschema').modelToJSONSchema;
+
 var createRouter = (Model, Schema)=> {
     
     var router = express.Router();    
@@ -44,7 +46,7 @@ var createRouter = (Model, Schema)=> {
 
     router.route('/schema')
         .get((req, res) => {
-            res.json(Schema.jsonSchema());
+            res.json(jsonSchema(Model));
         });
 
     router.route('/:id')

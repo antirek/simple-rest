@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose');
-require('mongoose-schema-jsonschema')(mongoose)
+
 
 mongoose.connect('mongodb://localhost/my_database');
 
