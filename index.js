@@ -11,7 +11,6 @@ var users = require('./routes/users');
 
 var mongoose = require('mongoose');
 
-
 mongoose.connect('mongodb://localhost/my_database');
 
 var LokoSchema = require('./models/loko');

@@ -6,6 +6,8 @@ var bodyParser = (require('body-parser')).json();
 
 var jsonSchema = require('mongoose-jsonschema').modelToJSONSchema;
 
+var uuid = require('uuid');
+
 var createRouter = (Model, Schema)=> {
     
     var router = express.Router();    
@@ -39,6 +41,7 @@ var createRouter = (Model, Schema)=> {
         })
         .post((req, res)=> {
             var model = new Model(req.body);
+            model._id = uuid.v4();
             model.save()
                 .then((models)=>res.json(models))
                 .catch(req.errorCallback)
